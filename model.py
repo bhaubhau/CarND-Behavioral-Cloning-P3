@@ -5,7 +5,8 @@ import numpy as np
 lines=[]
 with open("./data/driving_log.csv") as csvfile:
     reader=csv.reader(csvfile)
-    for line in reader:
+    next(reader)
+    for line in reader:        
         lines.append(line)
         
 images=[]
@@ -13,7 +14,7 @@ measurements=[]
 for line in lines:
     center_path=line[0]
     filename=center_path.split("/")[-1]
-    center_path="./data/" + filename
+    center_path="./data/IMG/" + filename
     image=cv2.imread(center_path)
     images.append(image)
     measurement=float(line[3])
@@ -30,6 +31,6 @@ model.add(Flatten(input_shape=(160,320,3)))
 model.add(Dense(1))
 
 model.compile(loss='mse',optimizer='adam')
-model.fit(X_train,y_train,validation_split=0.2,shuffle=True,nb_epoch=7)
+model.fit(X_train,y_train,validation_split=0.2,shuffle=True,epochs=7)
 
 model.save('model.h5')
