@@ -2,8 +2,10 @@ import csv
 import cv2
 import numpy as np
 
+data_folder="./SampleData/"
+
 lines=[]
-with open("./data/driving_log.csv") as csvfile:
+with open(data_folder + "driving_log.csv") as csvfile:
     reader=csv.reader(csvfile)
     next(reader)
     for line in reader:        
@@ -14,19 +16,19 @@ measurements=[]
 for line in lines:
     center_path=line[0]
     filename=center_path.split("/")[-1]
-    center_path="./data/IMG/" + filename
+    center_path=data_folder + "IMG/" + filename
     image=cv2.imread(center_path)
     images.append(image)
     
     left_path=line[1]
     filename=left_path.split("/")[-1]
-    left_path="./data/IMG/" + filename
+    left_path=data_folder + "IMG/" + filename
     image=cv2.imread(left_path)
     images.append(image)
     
     right_path=line[2]
     filename=right_path.split("/")[-1]
-    right_path="./data/IMG/" + filename
+    right_path=data_folder + "IMG/" + filename
     image=cv2.imread(right_path)
     images.append(image)
     
