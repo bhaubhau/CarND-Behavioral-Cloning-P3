@@ -68,7 +68,7 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 #### 4. Appropriate training data
 
-[Sample driving data] (https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip) was chosen to keep the vehicle driving on the road. 
+[Sample driving data](https://d17h27t6h515a5.cloudfront.net/topher/2016/December/584f6edd_data/data.zip) was chosen to keep the vehicle driving on the road. 
 
 ### Model Architecture and Training Strategy
 
